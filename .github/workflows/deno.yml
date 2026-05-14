@@ -6,6 +6,8 @@ on:
       - develop
       - 'release/**'
   pull_request:
+    types: 
+      - opened
     branches:
       - main
 jobs:
@@ -13,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Step
-        run: echo "A demo build"
+        run: echo "A demo build, ${{ vars.MY_NAME }}"
