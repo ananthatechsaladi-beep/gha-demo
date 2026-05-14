@@ -1,4 +1,4 @@
-name: Hello World
+name: Github Actions Demo
 on: 
   push:
     branches:
@@ -11,10 +11,16 @@ on:
     branches:
       - main
 jobs:
-  build:
+  actions-demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Step
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Print about.jsx file
+        uses: cat src/about.jsx
+
+      - name: Print Variables and secrets
         run: |
           echo "A demo build, ${{ vars.MY_NAME }}"
           echo "A demo build ${{ secrets.DOCKER_PASSWORD }}"
